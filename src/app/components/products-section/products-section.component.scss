@@ -1,0 +1,166 @@
+@import "../../styles/schema.scss";
+@import "../../styles/flex-grid.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/components/buttons.scss";
+
+.products-section {
+  padding-bottom: 40px;
+
+  &__tag{
+    padding: 15px 10px;
+    &-text{
+      @include text-2;
+      border: 1px solid $secondary-color;
+      border-radius: 4px;
+      padding: 10px 15px;
+      overflow: hidden;      
+      &--red{
+        color: #fff;
+        background-color: #f32323;
+        border:none;
+      }
+      &--white{
+        color: #000;
+        background-color: #fff;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &__title {
+    @include title-1;
+    margin-top: 100px;
+    &--hollow{
+      color: #fff;
+      text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+    }
+  }
+  &-title {
+    @include title-2;
+    &--center{
+      text-align:center;
+    }
+    &--more{
+      text-align:center;
+      color: #4a90e2;
+      cursor: pointer;
+      a{
+        color: #4a90e2;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &__description{
+    @include title-3;
+  }
+
+  &-promoted {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-media {
+      height: 400px;
+      margin-bottom: 40px;
+      margin-right: 50px;
+      width: calc(65% - 50px);
+      position: relative;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &-text{
+      width:35%;
+
+      &__media{
+        height: 100px;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &-footer {
+      position: absolute;
+      bottom: 20px;
+      left: 15px;
+
+      &__title {
+        @include title-6;
+        color: #fff;
+      }
+
+      &__date{
+        @include title-5;
+        color: #fff;
+      }
+    }
+
+    &-header {
+      margin-bottom: 16px;
+
+      &__title {
+        @include sm-title;
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 20px;
+        vertical-align: middle;
+      }
+    }
+
+    &__text {
+      @include text;
+      &-title{
+        @include text-1;
+        padding:20px 0;
+      }
+    }
+
+    &__btn {
+      @include btn;
+      vertical-align: middle;
+      display: inline-block;
+      margin-top: 30px;
+    }
+  }
+
+  &-product {
+    &-media {
+      height: 300px;
+      margin-bottom: 40px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &-header {
+      margin-bottom: 16px;
+
+      &__title {
+        @include title-4;
+        display: inline-block;
+        margin-right: 20px;
+        vertical-align: middle;
+      }
+
+      &__date{
+        @include title-5;
+      }
+    }
+
+    &__text {
+      @include text;
+    }
+  }
+}
+
+.products-grid {
+  @include flex-grid(2, 40px);
+
+  @media (max-width: 568px) {
+    @include flex-grid(1, 24px);
+  }
+}

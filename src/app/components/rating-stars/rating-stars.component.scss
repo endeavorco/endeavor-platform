@@ -1,0 +1,25 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/schema.scss";
+
+.stars {
+
+  &-item{
+    width: 21px;
+    height: 22px;
+    margin: 6px;
+    display: inline-block;
+    
+    background: url(/assets/images/star_small.svg) repeat-x;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -999em;
+
+    &-img{
+      background: url(/assets/images/star_small_fill.svg) repeat-x;
+      background-position: 0 100%;
+      float: left;
+      height: 21px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="mobile-menu-nav" [@simpleAnimation] *ngIf="isOpen">
+  <div class="top-header-part">
+    <a href="/" class="logo"></a>
+    <div (click)="closeMenu()" class="mobile-menu-icon"></div>
+    <!-- <app-cart-badge [isColorInverted]="true"></app-cart-badge> -->
+  </div>
+  <div class="mobile-menu-container">
+    <div *ngFor="let product of products" class="link-item">
+      <a (click)="goProduct(product)" class="activeLink">
+        {{product.title}}
+      </a>
+    </div>
+  </div>
+</div>

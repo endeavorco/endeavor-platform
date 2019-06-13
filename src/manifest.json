@@ -1,0 +1,9 @@
+{
+  "name": "Miami Open",
+  "short_name": "Miami Open",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
+}

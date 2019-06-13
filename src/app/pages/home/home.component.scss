@@ -1,0 +1,11 @@
+@import "../../styles/schema.scss";
+@import '../../styles/mixins.scss';
+
+.home-page{
+  &__banner{
+    padding: 30px 0;
+    img{
+      width: 100%;
+    }
+  }
+}

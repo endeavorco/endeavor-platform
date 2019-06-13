@@ -1,0 +1,9 @@
+<section class="hero-banner">
+  <div class="container">
+
+    <app-main-header [heading]="heading"></app-main-header>
+    <app-hero-video *ngIf="collection" [collection]="collection"></app-hero-video>
+    <app-menu [menuLinks]="collection?.menuLinks"></app-menu>
+
+  </div>
+</section>

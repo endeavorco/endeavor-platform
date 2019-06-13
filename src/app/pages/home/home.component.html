@@ -1,0 +1,23 @@
+<!-- <app-sign-up-modal></app-sign-up-modal> -->
+<main class="home-page">
+  <app-hero-banner *ngIf="configCollection?.slides && configCollection?.slides.length > 0" [config]="configCollection"
+    [autoplay]="true"></app-hero-banner>
+  <app-products-section [collection]="discoverCollection" [title]="'DISCOVER'"
+    [description]="'Editorial copy goes here just like this, see?'"></app-products-section>
+  <app-products-section [collection]="sportsCollection" [title]="'SPORTS'"
+    [description]="'Editorial copy goes here just like this, see? The max character count is in the specs to the left of this artboard.'">
+  </app-products-section>
+  <div class="home-page__banner">
+    <img src="/assets/images/home_page_about.png">
+  </div>
+  <app-products-section [collection]="musicCollection" [title]="'MUSIC'"
+    [description]="'Editorial copy goes here just like this, see?'"></app-products-section>
+  <app-products-section [collection]="artCollection" [title]="'ARTS & FASHION'"
+    [description]="'Editorial copy goes here just like this, see?'"></app-products-section>
+  <!-- <app-related-products (onProductClick)="gotoDetailProductPage($event)"
+                            [products]="relatedProducts">
+      </app-related-products>
+      <div class="home-form-section" *ngIf="environment.showSignUpHome">
+        <form-right-section></form-right-section>
+      </div> -->
+</main>

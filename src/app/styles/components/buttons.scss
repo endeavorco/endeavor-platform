@@ -1,0 +1,26 @@
+@mixin btn {
+  padding: 10px 25px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 12px;
+
+  &:hover {
+    background-color: #111;
+    color: #fff;
+  }
+}
+
+@mixin btn-1 {
+  padding: 10px 25px;
+  background-color: #206DDC;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+
+  &:hover {
+    background-color: #fff;
+    color: #206DDC;
+  }
+}

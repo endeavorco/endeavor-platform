@@ -1,0 +1,8 @@
+<!-- <app-collection-page *ngIf="collection?.state === 'onsale'" [collection]="collection"></app-collection-page> -->
+<app-collection-page [collection]="collection"></app-collection-page>
+
+<app-post-event-page *ngIf="collection?.state === 'postsale'" [collection]="collection"></app-post-event-page>
+
+<section class="preannouncement" *ngIf="collection?.state !== 'preannouncement'"></section>
+<section class="announcement" *ngIf="collection?.state !== 'announcement'"></section>
+<section class="presale" *ngIf="collection?.state !== 'presale'"></section>

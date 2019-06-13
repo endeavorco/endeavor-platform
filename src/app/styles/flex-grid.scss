@@ -1,0 +1,72 @@
+$columns: 1 2 3 4;
+$breakpoints: 360px 768px 1024px;
+
+@mixin responsive-flex-grid($columns, $breakpoints, $gutter) {
+  @if length($columns) != length($breakpoints) + 1 {
+    // throw a warning and do nothing
+    @warn "The length of the columns list (#{length($columns)}) should be one longer than the breakpoints list (#{length($breakpoints)})";
+  } @else {
+    $breakpoints: append($breakpoints, null);
+    @debug $breakpoints;
+    // dump mixin content
+    display: flex;
+    flex-wrap: wrap;
+    &__item {
+      margin-bottom: $gutter;
+      margin-right: $gutter;
+      @for $i from 1 through length($columns) {
+        $columnNum: nth($columns, $i);
+        $breakpointMin: null;
+        $breakpointMax: null;
+        @if $i==1 {
+          $breakpointMin: null;
+          $breakpointMax: nth($breakpoints, $i);
+        } @else {
+          $breakpointMin: nth($breakpoints, $i - 1) + 1px;
+          $breakpointMax: nth($breakpoints, $i);
+        }
+        @if $breakpointMin and $breakpointMax {
+          @media (min-width: $breakpointMin) and (max-width: $breakpointMax) {
+            width: calc(100% / #{$columnNum} - (#{$columnNum} - 1) * #{$gutter} / #{$columnNum});
+            &:nth-child(#{$columnNum}n) {
+              margin-right: 0;
+            }
+          }
+        } @else {
+          @if $breakpointMin {
+            @media (min-width: $breakpointMin) {
+              width: calc(100% / #{$columnNum} - (#{$columnNum} - 1) * #{$gutter} / #{$columnNum});
+              &:nth-child(#{$columnNum}n) {
+                margin-right: 0;
+              }
+            }
+          } @else {
+            @media (max-width: $breakpointMax) {
+              width: calc(100% / #{$columnNum} - (#{$columnNum} - 1) * #{$gutter} / #{$columnNum});
+              &:nth-child(#{$columnNum}n) {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin flex-grid($columns, $gutter) {
+  display: flex;
+  flex-wrap: wrap;
+  &__item {
+    margin-bottom: $gutter;
+    margin-right: $gutter;
+    width: calc(100% / #{$columns} - (#{$columns} - 1) * #{$gutter} / #{$columns});
+    &:nth-child(#{$columns}n) {
+      margin-right: 0;
+    }
+  }
+}
+
+.responsive-flex-grid {
+  @include responsive-flex-grid($columns, $breakpoints, 24px);
+}

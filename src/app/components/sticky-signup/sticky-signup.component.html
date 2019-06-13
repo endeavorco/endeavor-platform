@@ -1,0 +1,20 @@
+<div class="wrapper">
+
+  <div class="signup" [ngClass]="{ 'signup_shrinked': isBottomReached || isSignupOpen }" (click)="toggleSignUp(!isSignupOpen,false)">
+
+    <div class="signup-header">
+      <p class="signup-header-title">
+        <span class="signup-header-title__part">
+          PACKAGES AVAILABLE SOON.
+        </span>
+        SIGN UP TO GET NOTIFIED VIA EMAIL.
+      </p>
+      <p class="signup-header-title signup-header-title__mobile">
+        SIGN UP TO GET NOTIFIED.
+      </p>
+      <a aria-label="sign-up block" class="signup-header__btn" [ngClass]="{'signup-header__btn_open': isSignupOpen}"></a>
+    </div>
+
+  </div>
+
+</div>

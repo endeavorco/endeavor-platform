@@ -1,0 +1,14 @@
+<div class="video">
+  <div class="wrapper">
+    <div class="video__overlay" (click)="openVideo()"></div>
+    <video
+      #videoNode 
+      class="video__node" 
+      [autoplay]="true" 
+      [controls]="false" 
+      [loop]="true" 
+      [preload]="false"
+      >
+    </video>
+  </div>
+</div>

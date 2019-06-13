@@ -1,0 +1,77 @@
+<div class="edit-product wrapper">
+  <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+  <div class="container">
+
+    <p class="edit-product__title">Edit Product: {{product?.title}}</p>
+
+    <form class="edit-product-form" *ngIf="form" novalidate (ngSubmit)="onSubmit()" [formGroup]="form">
+
+      <div class="list">
+        <p class="edit-product-form__title">Tags</p>
+        <div class="edit-collection-form__wrapper" *ngIf="product?.tagList?.length > 0">
+          <div class="list-item" *ngFor="let prop of product.tagList; let index = index">
+            <div class="list-item-content">
+              <div class="list-item-content-group flex-between">
+                <label class="list-item-content__label" [attr.for]="'tag' + index">Tag:</label>
+                <input class="list-item-content__input" [formControlName]="'tag' + index" [id]="'tag' + index"
+                  [type]="text">
+              </div>
+            </div>
+            <button class="list-item__btn" type="button" (click)="removeRow('tagList',index)">Remove</button>
+          </div>
+        </div>
+        <button class="list__btn" type="button" (click)="addRow('tagList','')">Add +</button>
+      </div>
+
+      <div class="edit-product-form-fields">
+        <div class="edit-product-form-fields-group flex-between" *ngIf="product">
+          <label [attr.for]="startDate">Start Date (Day.Month.Year, like 24.05.2019):</label>
+          <input formControlName="startDate" id="startDate" [type]="text">
+        </div>
+
+        <div class="edit-product-form-fields-group flex-between" *ngIf="product">
+          <label [attr.for]="endDate">End Date (Day.Month.Year, like 24.05.2019):</label>
+          <input formControlName="endDate" id="endDate" [type]="text">
+        </div>
+
+        <div class="edit-product-form-fields-group flex-between" *ngIf="product">
+          <label [attr.for]="logoImage">Logo Image Url:</label>
+          <input formControlName="logoImage" id="logoImage" [type]="text">
+        </div>
+
+        <div class="edit-product-form-fields-group flex-between" *ngIf="product">
+          <label [attr.for]="category">Category:</label>
+          <input formControlName="category" id="category" [type]="text">
+        </div>
+
+        <div class="edit-product-form-fields-group flex-between" *ngIf="product">
+          <label [attr.for]="promoImage">Promo Image Url:</label>
+          <input formControlName="promoImage" id="promoImage" [type]="text">
+        </div>
+
+        <div class="edit-product-form-fields-group flex-between" *ngIf="product">
+          <label [attr.for]="locationUrl">Location Url:</label>
+          <input formControlName="locationUrl" id="locationUrl" [type]="text">
+        </div>
+
+        <div class="edit-product-form-fields-group flex-between" *ngIf="product">
+          <label [attr.for]="locationName">Location Name:</label>
+          <input formControlName="locationName" id="locationName" [type]="text">
+        </div>
+
+        <div class="edit-product-form-fields-group flex-between" *ngIf="product">
+          <label [attr.for]="locationAddress">Location Address:</label>
+          <input formControlName="locationAddress" id="locationAddress" [type]="text">
+        </div>
+
+        <div class="edit-product-form-fields-group flex-between" *ngIf="product">
+          <label [attr.for]="shortDescription">Short Description Html:</label>
+          <textarea formControlName="shortDescription" id="shortDescription"></textarea>
+        </div>
+      </div>
+
+      <button class="edit-product-form__btn" type="submit">Save</button>
+    </form>
+
+  </div>
+</div>

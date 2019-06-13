@@ -1,0 +1,22 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/schema.scss';
+
+.hero-banner {
+  position: relative;
+
+  .container {
+    padding: 0;
+  }
+
+  &__links{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 30px;
+
+    &-item{
+      @include title-7;
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<main>
+  <app-hero-banner></app-hero-banner>
+  <a style="background-color: red; width: 200px; height: 200px; margin: 20px; display: inline-block;" *ngFor="let product of discoverCollection?.productList" routerLink="/{{product.handle}}"></a>
+  <!-- <app-related-products (onProductClick)="gotoDetailProductPage($event)"
+                        [products]="relatedProducts">
+  </app-related-products>
+  <div class="home-form-section" *ngIf="environment.showSignUpHome">
+    <form-right-section></form-right-section>
+  </div> -->
+</main>

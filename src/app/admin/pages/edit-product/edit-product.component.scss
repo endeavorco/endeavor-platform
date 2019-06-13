@@ -1,0 +1,89 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/schema.scss";
+
+.edit-product {
+  &__title {
+    @include md-title;
+    margin-bottom: 60px;
+    margin-top: 40px;
+  }
+
+  &-form {
+    width: 400px;
+    margin-bottom: 40px;
+
+    &__title {
+      @include sm-title;
+      margin-bottom: 18px;
+    }
+
+    &-fields {
+      margin-bottom: 40px;
+      width: 400px;
+
+      &-group {
+        margin-bottom: 8px;
+
+        input,
+        textarea {
+          width: 60%;
+        }
+      }
+    }
+
+    &__btn {
+      @include text;
+      width: 100px;
+      padding: 8px 16px;
+
+      color: green;
+      background-color: transparent;
+      border: 1px solid green;
+    }
+    .list {
+      margin-bottom: 40px;
+
+      &-item {
+        @include text;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        border: 1px solid #000;
+        margin-bottom: 8px;
+
+        &-content {
+          width: 100%;
+          border-right: 1px solid #000;
+          padding: 8px 16px;
+
+          &-group {
+          }
+
+          &__label {
+          }
+          &__input {
+            width: 75%;
+          }
+        }
+
+        &__btn {
+          @include text;
+          color: red;
+          padding: 16px;
+          background-color: transparent;
+          border: none;
+        }
+      }
+
+      &__btn {
+        @include text;
+        width: 100px;
+        padding: 8px 16px;
+
+        background-color: transparent;
+        border: 1px solid #000;
+      }
+    }
+  }
+}

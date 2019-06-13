@@ -1,0 +1,63 @@
+<div class="signup-popup" [ngClass]="{ 'signup-popup_opened': isOpen }">
+  <div class="signup-popup-content" [ngClass]="{ 'signup-popup-content__success': formSubmitted }">
+    <div class="signup-popup-close">
+      <span class="signup-popup-close__icon" (click)="hidePopup()"></span>
+    </div>
+    <div class="signup-popup-header">
+      <h4 class="signup-popup-header-title">GET ON THE INSIDE TRACK</h4>
+      <span class="signup-popup-header-icon" (click)="hidePopup()" [ngClass]="{ 'signup-popup-header-icon__hide': isBottomReached }"></span>
+    </div>
+    <p class="signup-popup-text">
+      Sign up to get notified when The Experience Packages are available for purchase, 
+      and receive info on future events and special offers.
+    </p>
+    <div class="signup-popup-form">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="signup-popup-form-box">
+          <input type="email" formControlName="email" 
+            [ngClass]="{'error': signUpForm.controls.email.errors && 
+                                signUpForm.controls.email.dirty && !signUpForm.controls.email.pristine }" 
+                                class="signup-popup-form-box-input" required>
+          <label class="signup-popup-form-box-label">Email*</label>
+          <p class="signup-popup-form-box-error" 
+          [ngClass]="{'show': signUpForm.controls.email.errors && 
+                      signUpForm.controls.email.dirty && !signUpForm.controls.email.pristine}">
+                Please, double check that email format</p>
+        </div>
+        <div class="signup-popup-form-box">
+          <input type="text" formControlName="name" 
+          [ngClass]="{ 'error': signUpForm.controls.name.errors && 
+                        signUpForm.controls.name.dirty && !signUpForm.controls.name.pristine }" 
+                        class="signup-popup-form-box-input" required>
+          <label class="signup-popup-form-box-label" >Full Name*</label>
+          <p class="signup-popup-form-box-error" 
+          [ngClass]="{'show': signUpForm.controls.name.errors && 
+                    signUpForm.controls.name.dirty && !signUpForm.controls.name.pristine}">
+                    Full Name can't be empty</p>
+        </div>
+        <button type="submit" [disabled]="!signUpForm.valid || formSubmitted" class="signup-popup-form-btn" [ngClass]="{'hide': formSubmitted, 'show': !formSubmitted}">Submit</button>
+        <p class="signup-popup-form-success" [ngClass]="{'show': formSubmitted, 'hide': !formSubmitted}">Thank you for signing up!</p>
+      </form>
+    </div>
+    <div class="signup-popup-terms">
+      <p class="signup-popup-terms__text">By signing up, I agree to the Endeavor Experiences Terms of Use, 
+        and acknowledge the Privacy Policy and that I have the option to remove myself at anytime.</p>
+    </div>
+  </div>
+
+  <div class="signup-popup-content signup-popup-content__submitted" [ngClass]="{ 'signup-popup-content__submitted-show': formSubmitted }">
+    <div class="signup-popup-close">
+      <span class="signup-popup-close__icon" (click)="hidePopup()"></span>
+    </div>
+    <div class="signup-popup-header signup-popup-header__submitted">
+      <h4 class="signup-popup-header-title">YOU'RE SIGNED UP!</h4>
+    </div>
+    <p class="signup-popup-text">
+      We'll notify you via email as soon as The Experience Packages are available.
+    </p>
+  </div>
+</div>
+
+<div class="terms" [ngClass]="{ 'terms_opened': isOpen }">
+  <p class="terms-text">By signing up I agree to the Endeavor Experiences Terms of Use, and acknowledge the Privacy Policy and that I have the opption to remove myself at anytime.</p>
+</div>

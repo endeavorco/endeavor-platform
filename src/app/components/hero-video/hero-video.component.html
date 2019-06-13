@@ -1,0 +1,45 @@
+<div class="hero-video">
+
+  <video class="hero-video-bg" [muted]="true" [autoplay]="true" [controls]="false" [loop]="true" [preload]="false"
+    #bgVideoDesktop>
+  </video>
+
+  <div
+    class="hero-video-content"
+    (click)="openVideo()"
+    (mouseenter) ="playVideo('mainVideoDesktop')"  
+    (mouseleave) ="pauseVideo('mainVideoDesktop')"
+  >
+    <div #overlay class="overlay"></div>
+    <img src="../../../assets/images/product-page-hero-logo.png" alt="main logo" class="hero-video-content__logo">
+    <p class="hero-video-content-text">
+      <span class="hero-video-content-text__part">The Official Access</span>
+      <span class="hero-video-content-text__part">to {{collection.heroBlock.eventName}}</span>
+    </p>
+    <div class="divider"></div>
+    <p class="hero-video-content-text">{{collection.heroBlock.dates}}</p>
+    <button class="hero-video-content__play">Watch the video</button>
+  </div>
+
+  <div class="hero-video-main flex-center">
+    <video
+      #mainVideoDesktop
+      class="hero-video-main__video"
+      [autoplay]="true"
+      [controls]="false"
+      [loop]="true"
+      [preload]="false"
+      >
+    </video>
+    <video
+      #fullVideo
+      class="hero-video-main__fullvideo"
+      [autoplay]="true"
+      [controls]="false"
+      [loop]="true"
+      [preload]="false"
+      (fullscreenchange)="toggleFullScreenVideo()"
+      >
+    </video>
+  </div>
+</div>

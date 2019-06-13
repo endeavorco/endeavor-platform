@@ -1,0 +1,376 @@
+@import "./media-mixins.scss";
+
+@mixin set-font($size, $spacing: 0, $height: inherit, $weight: normal, $color: inherit) {
+  font-size: $size;
+  letter-spacing: $spacing;
+  line-height: $height;
+  font-weight: $weight;
+  color: $color;
+}
+
+// TYPOGRAPHY
+
+@mixin big-title {
+  font-size: 56px;
+  line-height: 1.4;
+  color: #000;
+  font-family: $main-fonts;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+@mixin title-1 {
+  font-size: 65px;
+  line-height: 65px;
+  letter-spacing: 0;
+  color: $main-color;
+  font-family: $main-fonts;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+@mixin title-2 {
+  font-size: 12px;
+  margin-bottom: 15px;
+  color: $main-color;
+  font-family: $main-fonts;
+  text-transform: uppercase;
+  line-height: 22px;
+  letter-spacing: 0;
+  opacity: 0.4;
+  font-weight: bold;
+}
+
+@mixin title-3 {
+  font-size: 18px;
+  color: $main-color;
+  font-family: $main-fonts;
+}
+
+@mixin title-4 {
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: $main-color;
+  font-family: $main-fonts;
+  line-height: 22px;
+  font-weight: bold;
+}
+
+@mixin title-5 {
+  font-size: 14px;
+  color: $main-color;
+  font-family: $main-fonts;
+  line-height: 22px;
+  opacity: 0.6;
+}
+
+@mixin title-6 {
+  font-size: 35px;
+  color: $main-color;
+  font-family: $main-fonts;
+  line-height: 40px;
+}
+
+@mixin title-7 {
+  font-size: 35px;
+  line-height: 50px;
+  letter-spacing: 0;
+  color: #fff;
+  font-family: $main-fonts;
+  text-transform: uppercase;
+}
+
+@mixin title-8 {
+  font-size: 56px;
+  line-height: 30px;
+  letter-spacing: 0.19px;
+  font-family: $main-fonts;
+  font-weight: bold;
+  @include media-breakpoint-down(sm) {
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0.09px;
+  }
+}
+
+@mixin title-9 {
+  font-size: 15px;
+  line-height: 33px;
+  letter-spacing: 0.33px;
+  font-family: AvenirNext-Medium;
+  @include media-breakpoint-down(sm) {
+    font-size: 13px;
+    line-height: 33px;
+    letter-spacing: 0.29px;
+  }
+}
+
+@mixin title-10 {
+  font-size: 20px;
+  line-height: 33px;
+  letter-spacing: 0.33px;
+  font-family: AvenirNext-Medium;
+  @include media-breakpoint-down(sm) {
+    font-size: 17px;
+    line-height: 29px;
+    letter-spacing: 0.28px;
+  }
+}
+
+@mixin title-11 {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 40px;
+  letter-spacing: 0.1px;
+  font-family: $main-fonts;
+}
+
+@mixin title-12 {
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  font-family: $main-fonts;
+}
+
+@mixin title-13 {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 30px;
+  letter-spacing: 0.17px;
+  font-family: $main-fonts;
+  color: #fff;
+  @include media-breakpoint-down(sm) {
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0.09px;
+  }
+}
+
+@mixin title-14 {
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 30px;
+  letter-spacing: 0.2px;
+  font-family: $main-fonts;
+}
+
+@mixin title-15 {
+  font-size: 38px;
+  line-height: 51px;
+  letter-spacing: 0px;
+  font-family: AvenirNext-Medium;
+  @include media-breakpoint-down(sm){
+    font-size: 25px;
+    line-height: 33px;
+  }
+}
+
+@mixin title-16 {
+  font-size: 24px;
+  line-height: 44px;
+  letter-spacing: 0.03px;
+  font-family: AvenirNext-Medium;
+}
+
+@mixin title-17 {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 40px;
+  letter-spacing: 0.1px;
+  font-family: $main-fonts;
+}
+
+@mixin title-18 {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 40px;
+  letter-spacing: 0.1px;
+  font-family: "TradeGothicLTStd-Bd2", Roboto;
+}
+
+@mixin title-19 {
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 1.11px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+@mixin title-20 {
+  font-weight: bold;
+  font-size: 37px;
+  line-height: 42px;
+  letter-spacing: 2.06px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+@mixin md-title {
+  margin-bottom: 24px;
+  color: $main-color;
+  font-family: $main-fonts;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+@mixin sm-title {
+  margin-bottom: 18px;
+  color: $main-color;
+  font-family: $main-fonts;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 1px;
+}
+
+@mixin text {
+  font-size: 14px;
+  line-height: 25px;
+  color: #000;
+}
+
+@mixin text-1 {
+  font-family: $main-fonts;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+  color: #000;
+}
+
+@mixin text-2 {
+  font-family: $main-fonts;
+  font-size: 12px;
+  line-height: 18px;
+  color: $secondary-color;
+  text-transform: uppercase;
+}
+
+@mixin text-3 {
+  font-family: $main-fonts;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 40px;
+  letter-spacing: 0.1px;
+  color: #fff;
+  @include media-breakpoint-down(sm) {
+    font-size: 17px;
+    line-height: 29px;
+    letter-spacing: 0.28px;
+  }
+}
+
+@mixin text-4 {
+  font-family: $main-fonts;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 2px;
+}
+
+@mixin text-5 {
+  font-family: $main-fonts;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+@mixin text-6 {
+  font-family: $main-fonts;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+@mixin text-7 {
+  font-family: AvenirNext-Medium;
+  font-size: 15px;
+  line-height: 23px;
+  letter-spacing: 0.25px;
+}
+
+@mixin text-8 {
+  font-family: $main-fonts;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+@mixin text-9 {
+  font-family: $main-fonts;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: 0.56px;
+}
+
+@mixin text-10 {
+  font-family: AvenirNext-Medium;
+  font-size: 17px;
+  line-height: 25px;
+  letter-spacing: 0.28px;
+}
+
+@mixin text-11 {
+  font-family: AvenirNext-Medium;
+  font-size: 12px;
+  line-height: 21px;
+  letter-spacing: 0.26px;
+}
+
+@mixin text-12 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.89px;
+}
+
+@mixin text-13 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 20px;
+  letter-spacing: 1.11px;
+}
+
+@mixin text-14 {
+  font-family: AvenirNext-Medium;
+  font-size: 12px;
+  line-height: 42px;
+  letter-spacing: 0.26px;
+}
+
+@mixin light-blue-bg-gradient {
+  background: rgba(217, 233, 240, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(217, 233, 240, 1) 0%,
+    rgba(217, 233, 240, 1) 59%,
+    rgba(186, 232, 250, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(217, 233, 240, 1)),
+    color-stop(59%, rgba(217, 233, 240, 1)),
+    color-stop(100%, rgba(186, 232, 250, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(217, 233, 240, 1) 0%,
+    rgba(217, 233, 240, 1) 59%,
+    rgba(186, 232, 250, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(217, 233, 240, 1) 0%,
+    rgba(217, 233, 240, 1) 59%,
+    rgba(186, 232, 250, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(217, 233, 240, 1) 0%,
+    rgba(217, 233, 240, 1) 59%,
+    rgba(186, 232, 250, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(217, 233, 240, 1) 0%,
+    rgba(217, 233, 240, 1) 59%,
+    rgba(186, 232, 250, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9e9f0', endColorstr='#bae8fa', GradientType=0 );
+}

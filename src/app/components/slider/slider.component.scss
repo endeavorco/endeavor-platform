@@ -1,0 +1,21 @@
+@import "../../styles/mixins.scss";
+
+.my-slider {
+  max-height: 735px;
+  background-color: #000;
+
+  &-item {
+    height: 100%;
+    cursor: grab;
+
+    &__img {
+      width: 100%;
+      display: block;
+      @include media-breakpoint-down(sm) {
+        width: auto;
+        max-height: 345px;
+        max-width: 100%;
+      }
+    }
+  }
+}

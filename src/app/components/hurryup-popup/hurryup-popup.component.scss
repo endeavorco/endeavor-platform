@@ -1,0 +1,47 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/schema.scss';
+
+.hurryup-popup{
+  position: fixed;
+  bottom: 135px;
+  right: 15px;
+  width: 360px;
+  z-index: 1;
+  @include media-breakpoint-down(sm){
+    width: 100%;
+    right: 0;
+    bottom: 120px;
+  }
+  &__inner{
+    border-radius: 3px;
+    background-color: #fff;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.07);
+  }
+  &__close{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    background-image: url(/assets/images/common/close-icon-black.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 1;
+  }
+  &__text{
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    line-height: 24px;
+    span{
+      color: $main-color;
+    }
+  }
+}
+

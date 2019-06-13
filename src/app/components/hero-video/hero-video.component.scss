@@ -1,0 +1,183 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/schema.scss";
+
+.hero-video {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  @include media-breakpoint-down(xs) {
+    // height: 1000px;
+  }
+
+  &-bg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+
+    @include media-breakpoint-down(tablet) {
+      // object-fit: contain;
+    }
+
+    @include media-breakpoint-down(xs) {
+      height: 530px;
+      display: block;
+      object-fit: cover;
+      position: initial;
+    }
+  }
+
+  &-content {
+    width: 1030px;
+    height: 522px;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    cursor: pointer;
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding: 0;
+    }
+
+    &:hover{
+      .hero-video-content{
+        &__logo, &-text, &__play{
+          opacity: 0.3;
+        }
+      }
+      .divider{
+        opacity: 0.3;
+      }
+    }
+
+    &__logo {
+      // height: 72px;
+      margin-bottom: 15px;
+      margin-top: 90px;
+      transition: opacity 0.5s ease;
+      
+      @include media-breakpoint-down(md) {
+        margin-top: 0px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        height: 50px;
+        margin-bottom: 50px;
+      }
+    }
+
+    &-text {
+      font-family: "Roboto";
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 1.4;
+      color: #fff;
+      transition: opacity 0.5s ease;
+
+      &:nth-of-type(2) {
+        margin-bottom: 22px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 20px;
+      }
+
+      &__part {
+        display: block;
+      }
+    }
+
+    &__play {
+      position: relative;
+      color: #fff;
+      padding-right: 14px;
+      background-color: transparent;
+      outline: none;
+      border: none;
+
+      font-family: "Roboto";
+      font-weight: bold;
+      letter-spacing: 2px;
+      transition: opacity 0.5s ease;
+
+      &::after {
+        content: url(/assets/icons/play.png);
+
+        position: absolute;
+        top: 0px;
+        right: 0;
+        height: 15px;
+        width: 9px;
+      }
+    }
+  }
+
+  &-main {
+    width: 1030px;
+    height: 522px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    cursor: pointer;
+
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+    }
+
+    &__video,
+    &__fullvideo {
+      height: 580px;
+      position: absolute;
+      z-index: -1;
+      @include media-breakpoint-down(lg) {
+        display: none;
+      }
+      // @include media-breakpoint-down(xs) {
+      //   width: 100%;
+      //   display: block;
+      //   position: relative;
+      // }
+
+      &_show {
+        display: block;
+      }
+    }
+
+    &__fullvideo {
+      z-index: -2;
+    }
+  }
+
+  .divider {
+    margin: 14px 0;
+    display: inline-block;
+    width: 238px;
+    height: 1px;
+    background-color: #fff;
+    transition: opacity 0.5s ease;
+  }
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 20;
+  background-color: rgb(0, 0, 0, 0);
+}

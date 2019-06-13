@@ -1,0 +1,40 @@
+<div class="signup">
+  <div [@hideForm]="isSubmitConfirmed || isSubmitError">
+    <p class="signup__title">Sign-up now to receive info when <br><b>The Experience Packages</b> are available, along
+      with the
+      inside scoop on future events, special offers and other exclusive experiences from Endeavor Experiences</p>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <span class="signup__error-text" *ngIf="form.invalid && (form.dirty || form.touched)">
+          Email is not valid.
+        </span>
+        <input id="email" type="email" class="form-control" formControlName="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" class="form-control" formControlName="fullname" name="fullname">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" class="form-control" formControlName="phone" name="phone">
+      </div>
+      <button type="submit" class="btn">SIGN UP</button>
+      <p class="signup__small-text">
+        <small>By signing up I agree to the Endeavor Experiences <a routerLink="/terms">Terms of Use</a>, and acknowledge the <a
+          routerLink="/privacy">Privacy Policy</a> and that I have the option to remove myself at any time.
+        </small>
+      </p>
+    </form>
+  </div>
+  <div [@hideForm]="!isSubmitConfirmed && !isSubmitError" [hidden]="!isSubmitConfirmed && !isSubmitError" class="signup__success">
+    <div class="signup__success-text" [hidden]="isSubmitError">
+      <h3 class="signup__success-text--uppercase"><b>You're on our list!</b></h3>
+      <h3>Be on the lookout for our exclusive emails on Endeavor Experiences events.</h3>
+    </div>
+    <div class="signup__success-text" [hidden]="isSubmitConfirmed">
+      <h3 class="signup__success-text--uppercase"><b>Something went wrong!</b></h3>
+      <h3>Our engineer is investigating the error. Try to reload this page and send it again, please.</h3>
+    </div>
+  </div>
+</div>

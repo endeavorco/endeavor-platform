@@ -1,0 +1,35 @@
+<div class="menu" [ngClass]="{'menu-sticky' : isSticky}">
+
+    <div class="menu-header flex-between" *ngIf="isSticky">
+        <a 
+            class="menu-header-logo" 
+            routerLink="/{{currentRoute}}" 
+            (click)="scrollToAnchor('collection-page')" 
+            [ngClass]="{'fadeIn' : isSticky}"
+        >
+            <!-- Endeavor<span class="menu-header-logo__part">Experiences</span> -->
+            <img src="../../../assets/images/ee-logo.svg" alt="Endeavor Experiances logo">
+        </a>
+
+        <div class="menu-header-content" [ngClass]="{'fadeIn' : isSticky}">
+            <img class="menu-header-content__logo" src="../../../assets/images/product-page-hero-logo.png" alt="logo">
+            <p class="menu-header-content__date">/ September 5 - 11</p>
+        </div>
+
+        <div class="menu-header-contacts" [ngClass]="{'fadeIn' : isSticky}">
+            <a href="tel:+1-844-325-0720" class="menu-header-contacts__phone" (click)="googleAnalyticsService.sendContactEvent('Phone')">+1-844-325-0720</a>
+            <button class="menu-header-contacts__btn" (click)="toggleSignUp(!isSignupOpen)">Get Notified</button>
+        </div>
+        <a href="tel:+1-844-325-0720" class="menu-header__mobile-phone" (click)="googleAnalyticsService.sendContactEvent('Phone')"></a>
+    </div>
+
+    <div class="menu-nav" [ngClass]="{'fadeIn' : isSticky}">
+        <a class="menu-nav__item" *ngFor="let link of menuLinks" (click)="scrollToAnchor(link.text)">
+            {{link.text}}
+        </a>
+    </div>
+
+    <!-- <div class="menu-sidepart">
+        <a class="menu-sidepart__item" *ngFor="let link of corporateLinks" routerLink="/{{link.url}}">{{link.text}}</a>
+    </div> -->
+</div>

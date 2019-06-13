@@ -1,0 +1,40 @@
+<div class="main-header flex-between">
+    <div>
+        <a class="main-header-logo" (click)="scrollToAnchor('collection-page')">
+            <!-- Endeavor<span class="main-header-logo__part">Experiences</span> -->
+            <img src="../../../assets/images/ee-logo.svg" alt="Endeavor Experiances logo">
+        </a>
+        <!-- <a aria-label="mobile menu" class="navigation-mobile-btn" (click)="toggleNav()"></a> -->
+    </div>
+    <p *ngIf="isMainPage" class="main-header__heading">{{heading}}</p>
+    <div *ngIf="!isMainPage" class="main-header-info">
+        <div class="main-header-info-contact">
+            <a href="tel:+1-844-325-0720" class="main-header-info-contact__phone" (click)="googleAnalyticsService.sendContactEvent('Phone')">+1-844-325-0720</a>
+            <button class="main-header-info-contact__btn" (click)="toggleSignUp(!isSignupOpen)">Get Notified</button>
+        </div>
+        <!-- <div class="main-header-info-nav">
+            <a routerLink="/" class="main-header-info-nav__item">See More On Endeavor Experiances</a>
+            <a routerLink="/" class="main-header-info-nav__item">Corporate</a>
+            <a routerLink="/" class="main-header-info-nav__item">FAQ</a>
+        </div> -->
+    </div>
+    <a href="tel:+1-844-325-0720" class="main-header__mobile-phone" (click)="googleAnalyticsService.sendContactEvent('Phone')"></a>
+</div>
+
+<!-- <div *ngIf="isMobNavOpen" class="navigation-mobile">
+    <a aria-label="mobile menu" class="navigation-mobile-btn navigation-mobile-btn_open" (click)="toggleNav()"></a>
+    <img src="../../../assets/icons/header-nav-mobile-logo.png" alt="mobile menu logo" class="navigation-mobile__logo">
+    <div class="navigation-mobile-menu">
+        <a routerLink="/" class="navigation-mobile-menu__item">See Reviews</a>
+        <a routerLink="/" class="navigation-mobile-menu__item">Sample Itinerary</a>
+        <a routerLink="/" class="navigation-mobile-menu__item">Gallery</a>
+        <a routerLink="/" class="navigation-mobile-menu__item">About Endeavor</a>
+        <a routerLink="/" class="navigation-mobile-menu__item">NYFW The Shows</a>
+        <button class="navigation-mobile-menu__btn">Get Notified</button>
+    </div>
+    <div class="navigation-mobile-info">
+        <a routerLink="/" class="navigation-mobile-info__item">See More On Endeavor Experiances</a>
+        <a routerLink="/" class="navigation-mobile-info__item">Corporate</a>
+        <a routerLink="/" class="navigation-mobile-info__item">FAQ</a>
+    </div>
+</div> -->

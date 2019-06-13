@@ -1,0 +1,218 @@
+<main id="collection-page" class="collection-page">
+  <app-product-hero-banner *ngIf="collection" [collection]="collection"></app-product-hero-banner>
+
+  <section id="about" class="about">
+    <div class="wrapper">
+      <div class="about-content">
+        <p class="about-content__title">
+          {{collection?.aboutBlock.aboutTitle}}
+        </p>
+        <p class="about-content__text">
+          {{collection?.aboutBlock.aboutText}}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="experience">
+    <div class="wrapper">
+
+      <h2 class="experience__title">{{collection?.experienceBlock.title}}</h2>
+      <p class="experience__subtitle">{{collection?.experienceBlock.text}}</p>
+
+      <div class="experience-content">
+
+        <div class="experience-content-box flex-between">
+          <div class="experience-content-box-part">
+            <img class="experience-content-box-part__img experience-content-box-part__img_1"
+              [src]="collection?.experienceBlock.experienceRatingImages[0]">
+            <h3 class="experience-content-box-part__title">
+              {{collection?.experienceBlock.experienceComments[0].text}}
+            </h3>
+            <p class="experience-content-box-part__text">
+              {{collection?.experienceBlock.experienceComments[0].author}}
+            </p>
+          </div>
+
+          <div class="experience-content-box-part">
+            <img class="experience-content-box-part__img experience-content-box-part__img_2"
+              [src]="collection?.experienceBlock.experienceRatingImages[1]">
+          </div>
+        </div>
+
+        <div class="experience-content-box flex-between">
+          <div class="experience-content-box-part">
+            <img class="experience-content-box-part__img experience-content-box-part__img_2"
+              [src]="collection?.experienceBlock.experienceRatingImages[2]">
+            <h3 class="experience-content-box-part__title experience-content-box-part__title_mobile">
+              {{collection?.experienceBlock.experienceComments[1].text}}
+            </h3>
+            <p class="experience-content-box-part__text_mobile">
+              {{collection?.experienceBlock.experienceComments[1].author}}
+            </p>
+
+          </div>
+
+          <div class="experience-content-box-part">
+            <img class="experience-content-box-part__img experience-content-box-part__img_1"
+              [src]="collection?.experienceBlock.experienceRatingImages[3]">
+            <h3 class="experience-content-box-part__title">
+              {{collection?.experienceBlock.experienceComments[1].text}}
+            </h3>
+            <p class="experience-content-box-part__text">
+              {{collection?.experienceBlock.experienceComments[1].author}}
+            </p>
+          </div>
+        </div>
+
+        <div class="experience-content-box flex-between">
+          <div class="experience-content-box-part">
+            <h3 class="experience-content-box-part__title">
+              {{collection?.experienceBlock.experienceComments[2].text}}
+            </h3>
+            <p class="experience-content-box-part__text">
+              {{collection?.experienceBlock.experienceComments[2].author}}
+            </p>
+
+            <div class="experience-raiting">
+              <app-rating-stars *ngIf="collection" [rating]="collection.experienceBlock.experienceRating.rating">
+              </app-rating-stars>
+              <p class="experience-raiting-subtitle">
+                <span class="experience-raiting-subtitle__part">Our average guest raiting
+                  {{collection?.experienceBlock.experienceRating.rating}}
+                  <span class="experience-raiting-subtitle__part_inner">(10)</span>
+                </span>
+                <span class="experience-raiting-subtitle__part">100% of reviewers would recomend to a friend</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="experience-content-box-part">
+            <img class="experience-content-box-part__img experience-content-box-part__img_2"
+              [src]="collection?.experienceBlock.experienceRatingImages[4]">
+          </div>
+          <div class="experience-content-box-part">
+            <div class="experience-slider">
+              <app-slider *ngIf="collection" [config]="sliderConfig"
+                [images]="collection?.experienceBlock.experienceRatingImages">
+              </app-slider>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-content-box experience-content-box_video flex-center container">
+          <p class="experience-video-title" [innerHTML]="collection?.experienceBlock.videoTitle"></p>
+          <div class="experience-video">
+            <app-video *ngIf="collection" [videoUrl]="collection.experienceBlock.videoUrl"
+              [videoId]="'experienceVideoDesktop'"></app-video>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="samples" class="samples">
+    <div class="wrapper container">
+
+      <div class="samples-content flex-center">
+        <p class="samples-content__title">
+          See Sample Itinerary
+        </p>
+        <p class="samples-content-subtitle">
+          <span class="samples-content-subtitle__part">See an example from the last season.</span>
+          <span class="samples-content-subtitle__part">*Availablity, dates and location subject to change, dependant on
+            package purchased</span>
+        </p>
+        <img src="../../../assets/images/itinerary-sample.png" alt="itinerary sample image"
+          class="samples-content__img" (click)="openModal('itinerary-modal')">
+      </div>
+
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <div class="wrapper">
+      <div class="gallery-inner">
+        <div class="container">
+          <h2 class="gallery__title">Explore Gallery</h2>
+          <div class="tabs">
+            <div class="tabs-nav">
+              <button class="tabs-nav__item active" *ngFor="let tab of collection?.galleryImages; let first = first"
+                (click)="activeTab = tab.name"
+                [ngClass]="{'active': !activeTab && first || activeTab == tab.name}">{{tab.name}}</button>
+            </div>
+            <div class="tabs-content">
+              <ng-container *ngFor="let tab of collection?.galleryImages; let first = first">
+                <div *ngIf="!activeTab && first || activeTab == tab.name" class="tabs-content-item">
+                  <app-product-gallery [photos]="tab.images"></app-product-gallery>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section id="slider" class="slider">
+    <div class="wrapper">
+      <div class="slider-inner">
+        <h2 class="slider-title">Perfect For</h2>
+        <div class="slider-content">
+          <app-slider *ngIf="collection" [config]="sliderConfig" [images]="sliderImages"></app-slider>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section id="contacts" class="contacts">
+    <div class="wrapper">
+      <div class="contacts-inner">
+        <div class="contacts-img">
+          <img src="https://res.cloudinary.com/dcmlzm03t/image/upload/e_trim/v1559135204/contactimg_vdpvqm.png">
+        </div>
+        <div class="contacts-content">
+          <div class="contacts-content-box">
+            <img class="contacts-content-icon"
+              src="/assets/icons/phone-call.svg">
+            <p class="contacts-content-text-title">Chat With Our Concierge</p>
+            <p class="contacts-content-text">Have a question about NYFW The Experience?<br>
+              Schedule a call with our concierge to inquire<br>
+              about our services at your convenience.
+          </div>
+          <a href="/" class="contacts-content-link">SCHEDULE NOW <span class="contacts-content-link-arrow"></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="info" class="info">
+    <div class="wrapper">
+      <div class="info-inner">
+        <h4 class="info-logo">ENDEAVOR EXPERIENCES IS</h4>
+        <h2 class="info-title">Unparalleled access, curation, and service.</h2>
+        <p class="info-text">Endeavor Experiences opens doors for our guests to experience more than 3,000 events across several industry. Events,
+        such as NYFW, that were only available to insider and professionals can now be shared with our exclusive community. We
+        pride ourselves on providing seamless seamless from the moment you arrive on our site to your time with us on location.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacts contacts__mobile">
+    <div class="contacts-img contacts-img__mobile">
+      <img src="https://res.cloudinary.com/dcmlzm03t/image/upload/e_trim/v1559135204/contactimg_vdpvqm.png">
+    </div>
+  </section>
+
+</main>
+
+<app-sticky-signup></app-sticky-signup>
+<app-sticky-signup-popup></app-sticky-signup-popup>
+<app-loader-transparent *ngIf="isCheckoutInProgress"></app-loader-transparent>
+
+<app-modal id="itinerary-modal">
+    <img class="modal-content__sample" src="../../../assets/images/itinerary-sample-modal.png" alt="">
+    <button class="modal__close" (click)="closeModal('itinerary-modal');"></button>
+</app-modal>

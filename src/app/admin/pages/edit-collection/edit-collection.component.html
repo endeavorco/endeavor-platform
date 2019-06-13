@@ -1,0 +1,344 @@
+<div class="edit-collection wrapper">
+  <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+  <div class="container">
+
+    <div class="edit-collection-content">
+      <form class="edit-collection-form" *ngIf="form" novalidate (ngSubmit)="onSubmit()" [formGroup]="form">
+
+        <div class="flex-between">
+          <p class="edit-collection__title">Edit Collection: {{collection?.title}}</p>
+          <button class="edit-collection-form__btn" type="submit">Save</button>
+        </div>
+
+
+        <div class="tabs">
+          <div class="tabs-nav">
+            <button type="button" class="tabs-nav__item" (click)="activeTab = 'heroSlider'"
+              [ngClass]="{'active': !activeTab || activeTab == 'heroSlider'}">
+              Hero Slider
+            </button>
+            <button type="button" class="tabs-nav__item" (click)="activeTab = 'heroLinks'"
+              [ngClass]="{'active': activeTab == 'heroLinks'}">Hero Links</button>
+            <button type="button" class="tabs-nav__item" (click)="activeTab = 'menuLinks'"
+              [ngClass]="{'active': activeTab == 'menuLinks'}">Menu Links</button>
+            <button type="button" class="tabs-nav__item" (click)="activeTab = 'menuCorporateLinks'"
+              [ngClass]="{'active': activeTab == 'menuCorporateLinks'}">Corporate Menu Links</button>
+            <button type="button" class="tabs-nav__item" (click)="activeTab = 'raitingImages'"
+              [ngClass]="{'active': activeTab == 'raitingImages'}">
+              Raiting Images
+            </button>
+            <button type="button" class="tabs-nav__item" (click)="activeTab = 'galleryImages'"
+              [ngClass]="{'active': activeTab == 'galleryImages'}">
+              gallery Images
+            </button>
+            <button type="button" class="tabs-nav__item" (click)="activeTab = 'heroBgVideos'"
+              [ngClass]="{'active': activeTab == 'heroBgVideos'}">
+              Hero Background Videos
+            </button>
+            <button type="button" class="tabs-nav__item" (click)="activeTab = 'stateOption'"
+              [ngClass]="{'active': activeTab == 'stateOption'}" *ngIf="collection?.state">
+              State Option
+            </button>
+          </div>
+
+          <div class="edit-collection-form-content">
+            <div class="tabs-content">
+              <div *ngIf="!activeTab || activeTab == 'heroSlider'" class="tabs-content-item">
+                <!-- HERO SLIDER -->
+                <div class="list">
+                  <p class="edit-collection-form__title">Hero Slider</p>
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.slides?.length > 0">
+                    <div class="list-item" *ngFor="let prop of collection.slides; let index = index">
+                      <div class="list-item-content">
+                        <div class="list-item-content-group flex-between">
+                          <label class="list-item-content__label" [attr.for]="'slideImg' + index">Slide Image
+                            Url:</label>
+                          <input class="list-item-content__input" [formControlName]="'slideImg' + index"
+                            [id]="'slideImg' + index" [type]="text">
+                        </div>
+                        <div class="list-item-content-group flex-between">
+                          <label class="list-item-content__label" [attr.for]="'slideUrl' + index">Slide Link
+                            Url:</label>
+                          <input class="list-item-content__input" [formControlName]="'slideUrl' + index"
+                            [id]="'slideUrl' + index" [type]="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" type="button" (click)="showConfirmationModal(false, 'slides',index)">Remove</button>
+                    </div>
+                  </div>
+                  <button class="list__btn" type="button" (click)="addRow('slides',{img:'',url:''})">Add
+                    +</button>
+                </div>
+                <!-- EO HERO SLIDER -->
+              </div>
+              <div *ngIf="activeTab == 'heroLinks'" class="tabs-content-item">
+                <!-- HERO LINKS -->
+                <div class="list">
+                  <p class="edit-collection-form__title">Hero Links</p>
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.heroLinks?.length > 0">
+                    <div class="list-item" *ngFor="let prop of collection.heroLinks; let index = index">
+                      <div class="list-item-content">
+                        <div class="list-item-content-group flex-between">
+                          <label class="list-item-content__label" [attr.for]="'heroLinkUrl' + index">Hero Link
+                            Url:</label>
+                          <input class="list-item-content__input" [formControlName]="'heroLinkUrl' + index"
+                            [id]="'heroLinkUrl' + index" [type]="text">
+                        </div>
+                        <div class="list-item-content-group flex-between">
+                          <label class="list-item-content__label" [attr.for]="'heroLinkText' + index">Hero Link
+                            Text:</label>
+                          <input class="list-item-content__input" [formControlName]="'heroLinkText' + index"
+                            [id]="'heroLinkText' + index" [type]="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" type="button"
+                        (click)="showConfirmationModal(false,'heroLinks',index)">Remove</button>
+                    </div>
+                  </div>
+                  <button class="list__btn" type="button" (click)="addRow('heroLinks',{url:'',text:''})">Add</button>
+                </div>
+                <!-- EO HERO LINKS -->
+              </div>
+              <div *ngIf="activeTab == 'menuLinks'" class="tabs-content-item">
+                <!-- MENU LINKS -->
+                <div class="list">
+                  <p class="edit-collection-form__title">Menu Links</p>
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.menuLinks?.length > 0">
+                    <div class="list-item" *ngFor="let prop of collection.menuLinks; let index = index">
+                      <div class="list-item-content">
+                        <div class="list-item-content-group flex-between">
+                          <label class="list-item-content__label" [attr.for]="'menuLinkUrl' + index">Menu Link
+                            Url:</label>
+                          <input class="list-item-content__input" [formControlName]="'menuLinkUrl' + index"
+                            [id]="'menuLinkUrl' + index" [type]="text">
+                        </div>
+                        <div class="list-item-content-group flex-between">
+                          <label class="list-item-content__label" [attr.for]="'menuLinkText' + index">Menu Link
+                            Text:</label>
+                          <input class="list-item-content__input" [formControlName]="'menuLinkText' + index"
+                            [id]="'menuLinkText' + index" [type]="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" type="button"
+                        (click)="showConfirmationModal(false,'menuLinks', index)">Remove</button>
+                    </div>
+                  </div>
+                  <button class="list__btn" type="button" (click)="addRow('menuLinks',{text:'',url:''})">Add
+                    +</button>
+                </div>
+                <!-- EO MENU LINKS -->
+              </div>
+              <div *ngIf="activeTab == 'menuCorporateLinks'" class="tabs-content-item">
+                <!-- CORPORATE LINKS -->
+                <div class="list">
+                  <p class="edit-collection-form__title">Corporate Menu Links</p>
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.corporateLinks?.length > 0">
+                    <div class="list-item" *ngFor="let prop of collection.corporateLinks; let index = index">
+                      <div class="list-item-content">
+                        <div class="list-item-content-group flex-between">
+                          <label class="list-item-content__label" [attr.for]="'corporateLinkUrl' + index">Menu Link
+                            Url:</label>
+                          <input class="list-item-content__input" [formControlName]="'corporateLinkUrl' + index"
+                            [id]="'corporateLinkUrl' + index" [type]="text">
+                        </div>
+                        <div class="list-item-content-group flex-between">
+                          <label class="list-item-content__label" [attr.for]="'corporateLinkText' + index">Menu Link
+                            Text:</label>
+                          <input class="list-item-content__input" [formControlName]="'corporateLinkText' + index"
+                            [id]="'corporateLinkText' + index" [type]="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" type="button"
+                        (click)="showConfirmationModal(false,'corporateLinks', index)">Remove</button>
+                    </div>
+                  </div>
+                  <button class="list__btn" type="button" (click)="addRow('corporateLinks',{text:'',url:''})">Add
+                    +</button>
+                </div>
+                <!-- EO CORPORATE LINKS -->
+              </div>
+              <div *ngIf="activeTab == 'raitingImages'" class="tabs-content-item">
+                <!-- RAITING SECTION IMAGES -->
+                <div class="list">
+                  <p class="edit-collection-form__title">Rating Section Images</p>
+                  <!-- EDIT COLLECTION FORM STARTS-->
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.experienceRatingImages?.length > 0">
+                    <div class="list-item" *ngFor="let prop of collection.experienceRatingImages; let index = index">
+                      <div class="list-item-content">
+                        <div class="flex-between">
+                          <a class="collection-thumb-container" [href]="prop" target="_blank">
+                            <img class="collection-thumb-img" [src]="getThumbnail(prop)">
+                          </a>
+                          <input class="list-item-content__input" [formControlName]="'experienceRatingImages' + index"
+                            [id]="'experienceRatingImages' + index" [type]="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" type="button"
+                        (click)="showConfirmationModal(false, 'experienceRatingImages', index)">Remove</button>
+                    </div>
+                  </div>
+                  <!-- EDIT COLLECTION FORM ENDS-->
+                  <button class="list__btn" type="button" (click)="addRow('experienceRatingImages','')">Add +</button>
+                </div>
+                <!-- EO RAITING SECTION IMAGES -->
+              </div>
+              <div *ngIf="activeTab == 'galleryImages'" class="tabs-content-item">
+                <!-- gallery IMAGES -->
+                <div class="list">
+                  <p class="edit-collection-form__title">Gallery Guests Images</p>
+                  <!-- EDIT COLLECTION FORM STARTS -->
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.galleryImages?.guests?.length > 0">
+
+                    <div class="list-item" *ngFor="let prop of collection?.galleryImages.guests; let index = index">
+                      <div class="list-item-content">
+                        <div class="flex-between">
+                          <a class="collection-thumb-container" [href]="prop" target="_blank">
+                            <img class="collection-thumb-img" [src]="getThumbnail(prop)">
+                          </a>
+                          <input class="list-item-content__input" [formControlName]="'galleryGuestImages' + index"
+                            [id]="'galleryGuestImages' + index" type="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" type="button"
+                        (click)="showConfirmationModal('galleryImages', 'guests', index)">Remove</button>
+                    </div>
+
+                  </div>
+                  <!-- EDIT COLLECTION FORM ENDS -->
+                  <button class="list__btn" type="button" (click)="addRowToObj('galleryImages', 'guests', '')">Add
+                    +</button>
+                </div>
+
+                <div class="list">
+                  <p class="edit-collection-form__title">Gallery Venue Images</p>
+                  <!-- EDIT COLLECTION FORM STARTS -->
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.galleryImages?.venue?.length > 0">
+                    <div class="list-item" *ngFor="let prop of collection?.galleryImages.venue; let index = index">
+                      <div class="list-item-content">
+                        <div class="flex-between">
+                          <a class="collection-thumb-container" [href]="prop" target="_blank">
+                            <img class="collection-thumb-img" [src]="getThumbnail(prop)">
+                          </a>
+                          <input class="list-item-content__input" [formControlName]="'galleryVenuesImages' + index"
+                            [id]="'galleryVenuesImages' + index" type="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" type="button"
+                        (click)="showConfirmationModal('galleryImages', 'venue', index)">Remove</button>
+                    </div>
+                  </div>
+                  <!-- EDIT COLLECTION FORM ENDS -->
+                  <button class="list__btn" type="button" (click)="addRowToObj('galleryImages', 'venue', '')">Add
+                    +</button>
+                </div>
+
+                <div class="list">
+                  <p class="edit-collection-form__title">Gallery Shows Images</p>
+                  <!-- EDIT COLLECTION FORM STARTS -->
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.galleryImages?.shows?.length > 0">
+                    <div class="list-item" *ngFor="let prop of collection?.galleryImages.shows; let index = index">
+                      <div class="list-item-content">
+                        <div class="flex-between">
+                          <a class="collection-thumb-container" [href]="prop" target="_blank">
+                            <img class="collection-thumb-img" [src]="getThumbnail(prop)">
+                          </a>
+                          <input class="list-item-content__input" [formControlName]="'galleryShowsImages' + index"
+                            [id]="'galleryShowsImages' + index" type="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" type="button"
+                        (click)="showConfirmationModal('galleryImages', 'shows', index)">Remove</button>
+                    </div>
+                  </div>
+                  <!-- EDIT COLLECTION FORM ENDS -->
+                  <button class="list__btn" type="button" (click)="addRowToObj('galleryImages', 'shows', '')">Add
+                    +</button>
+                </div>
+                <!-- // EO gallery IMAGES -->
+              </div>
+              <div *ngIf="activeTab == 'heroBgVideos'" class="tabs-content-item">
+                <!-- // BACKGROUND VIDEOS -->
+                <div class="list">
+                  <p class="edit-collection-form__title">Hero Background Video Url</p>
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.videoLinks">
+                    <div class="list-item">
+                      <div class="list-item-content">
+                        <div class="flex-between">
+                          <a *ngIf="collection?.videoLinks?.bgVideoUrl" class="collection-thumb-container"
+                            [href]="collection.videoLinks.bgVideoUrl" target="_blank">
+                            <img class="collection-thumb-img" [src]="getThumbnail(collection.videoLinks.bgVideoUrl)">
+                          </a>
+                          <input class="list-item-content__input" formControlName="bgVideoUrl" id="bgVideoUrl"
+                            type="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" (click)="showConfirmationModal('videoLinks', 'bgVideoUrl', false)"
+                        type="button">Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list">
+                  <p class="edit-collection-form__title">Hero Main Video Url</p>
+                  <div class="edit-collection-form__wrapper" *ngIf="collection?.videoLinks">
+                    <div class="list-item">
+                      <div class="list-item-content">
+                        <div class="flex-between">
+                          <a *ngIf="collection?.videoLinks.mainVideoUrl" class="collection-thumb-container"
+                            [href]="collection.videoLinks.mainVideoUrl" target="_blank">
+                            <img class="collection-thumb-img" [src]="getThumbnail(collection.videoLinks.mainVideoUrl)">
+                          </a>
+                          <input class="list-item-content__input" formControlName="mainVideoUrl" id="mainVideoUrl"
+                            type="text">
+                        </div>
+                      </div>
+                      <button class="list-item__btn" (click)="showConfirmationModal('videoLinks', 'mainVideoUrl', false)"
+                        type="button">Remove</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- // EO BACKGROUND VIDEOS -->
+              </div>
+              <div *ngIf="activeTab == 'stateOption'" class="tabs-content-item">
+                <div class="form-state" *ngIf="collection?.state">
+                  <label [attr.for]="state">State:</label>
+                  <select class="form-state-select" formControlName="state" id="state">
+                    <option class="form-state-select__option" *ngFor="let state of states" [ngValue]="state.value">
+                      {{state.title}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="edit-collection__products" *ngIf="collection?.products?.length > 0">
+              <p class="edit-collection__products-title">Products</p>
+              <a class="edit-collection__products-item" *ngFor="let product of collection.products, let i = index"
+                routerLink="/admin/edit-product/{{collection.handle}}/{{product.handle}}">
+                <p class="edit-collection__products-item__index">{{i+1}}</p>
+                {{product.title}}
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+
+    <!-- MODAL FOR DELETE ACTION-->
+    <div *ngIf="showModal" class="confirmation-modal">
+      <div class="confirmation-modal__content">
+        <div class="confirmation-modal__message">
+          Are you sure you want to remove this {{modalContent.type}}? This cannot be undone.
+        </div>
+        <button type="button" class="confirmation-modal__btn"
+          (click)="modalContent.propName ? removeRowFromObj(modalContent.propName, modalContent.arrayName, modalContent.index) : removeRow(modalContent.arrayName, modalContent.index)">Yes</button>
+        &nbsp;
+        <button type="button" class="confirmation-modal__btn" (click)="dismissPopUp()">No</button>
+      </div>
+      <div class="confirmation-modal__background"></div>
+    </div>
+    <!-- MODAL ENDS-->
+  </div>
+</div>

@@ -1,0 +1,203 @@
+@import '../../styles/mixins.scss';
+@import "../../styles/schema.scss";
+
+.heading {
+  position: relative;
+  background-color: $post-event-main-bg-color;
+  background-image: $post-event-main-bg;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: $heading-background-position-y;
+  max-width: 100%;
+  // max-height: 705px;
+
+  .row {
+    padding: $post-event-heading-row-padding;
+  }
+
+  @include media-breakpoint-down(sm) {
+    background-size: $post-event-heading-background-size;
+  }
+
+  & > .row {
+    @include media-breakpoint-only(md) {
+      margin-right: 0px;
+    }
+    @include media-breakpoint-only(lg) {
+      margin-right: 0px;
+    }
+  }
+
+  h1 {
+    font-size: 66px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: $heading-line-height-h1;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 34px;
+      line-height: 34px;
+    }
+  }
+
+  h2 {
+    font-size: 50px;
+    font-weight: lighter;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 25px;
+      max-width: 240px;
+      float: right;
+      line-height: 38px;
+    }
+  }
+
+  h3 {
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 3.4px;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 18px;
+      letter-spacing: 2.4px;
+    }
+  }
+
+  &__big-logo {
+    margin: $heading-big-logo-margin;
+    
+    @include media-breakpoint-down(lg) {
+      margin: $heading-big-logo-margin-mobile;
+    }
+  }
+
+  &-smalllogos-box {
+    text-align: right;
+
+    &__img {
+      margin-left: 48px;
+      @include media-breakpoint-only(md) {
+        margin-left: $post-event-heading-imgs-margin-left;
+      }
+      @include media-breakpoint-only(xs) {
+        margin-left: $post-event-heading-imgs-margin-left-mobile;
+      }
+    }
+  }
+
+  .video-wrapper {
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+
+    .video-bg {
+      filter: brightness(75%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+  }
+
+  &__text {
+    text-align: right;
+    max-width: $post-event-title-maxwidth;
+    float: right;
+    margin: $post-event-heading-text-margin;
+    position: relative;
+    top: $post-event-title-top;
+    transform: $post-event-title-transform;
+    
+    .heading__text__align-top {
+      top: 0;
+      transform: translateY(0);
+    }
+    
+    @include media-breakpoint-down(lg) {
+      margin: $post-event-heading-text-margin-mobile;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin: 20px 10px 130px 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      position: relative;
+      float: none;
+      max-width: 430px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: white;
+      font-family: $heading-text-font;
+      font-weight: $heading-text-font-weight;
+    }
+    h3 {
+      font-family: $heading-text-font-h3;
+    }
+    h1 {
+      font-weight: $heading-text-font-weight-h1;
+      line-height: $heading-text-line-height-h1;
+      font-size: $heading-text-font-size-h1;
+
+      @include media-breakpoint-down(lg) {
+        font-size: $heading-text-font-size-h1-lg;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: $heading-text-font-size-h1-md;
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: $heading-text-font-size-h1-lg;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: $heading-text-font-size-h1-md;
+      }
+    }
+  }
+
+  &__form {
+    margin: 20px 0 30px;
+    max-width: 430px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0px 10px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 0px rgba(0, 0, 0, 0);
+
+    @include media-breakpoint-down(sm) {
+      margin: 15px 8px 15px 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      position: relative;
+    }
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+      left: auto;
+      transform: none;
+      max-width: 100%;
+    }
+  }
+}
+
+.heading__text.heading__text_align-top {
+  top: 0;
+  transform: translateY(0);
+
+  @include media-breakpoint-down(sm) {
+    top: 10%;
+    transform: translateX(-50%);
+  }
+}

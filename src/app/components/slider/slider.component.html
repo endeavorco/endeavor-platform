@@ -1,0 +1,9 @@
+<div class="my-slider{{index}}">
+  <div class="my-slider-item" *ngFor="let slide of images">
+    <img class="my-slider-item__img" [src]="slide.img || slide"/>
+
+    <!-- <a routerLink="{{url}}">
+    </a> -->
+    
+  </div>
+</div>

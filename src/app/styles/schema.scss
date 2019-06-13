@@ -1,0 +1,233 @@
+//## COLORS
+
+$main-blue: #206DDC;
+$light-blue: #D9E9F0;
+$dark-gray: #1A1A1A;
+$mid-gray: #888888;
+$light-gray: #D8D8D8;
+$lighter-gray: #F3F3F3;
+
+$main-color: #000;
+$secondary-color: #fff;
+$btn-main-color: #000;
+$btn-main-text-color: #fff;
+$btn-border-main-color: #000;
+$btn-border-radius: 4px;
+$hover-color: #fff;
+$hover-color-text: #000;
+
+//## FONTS
+$main-fonts: Roboto, sans-serif;
+$second-fonts: "Proxima Nova Bold", sans-serif;
+$third-ff: "AvenirNext-DemiBold", sans-serif;
+
+//## ICONS
+$phone-icon: url(/assets/images/common/header/phone-icon-white.svg);
+$email-icon: url(/assets/images/common/header/email-icon-white.svg);
+$close-icon: url(/assets/images/common/mobile-menu/close-icon.svg);
+$close-icon-black: url(/assets/images/common/close-icon-black.svg);
+$close-btn-modal: url(/assets/images/common/modals/close_btn_black.svg);
+$ham-icon: url(/assets/images/common/mobile-menu/ham-icon.svg);
+$cart-icon-black-icon: url(/assets/images/common/modals/close_btn_black.svg);
+$arrow-right-icon: url(/assets/images/common/arrow-right.svg);
+$list-style-icon: url(/assets/icons/list-style.svg);
+
+//## HEADER
+$header-logo-mobile: url();
+
+$header-top-logo-width: auto;
+$header-top-logo-height: auto;
+$header-top-logo-img: url();
+$header-top-logo-color: #000;
+$header-top-logo-filter: none;
+$header-top-logo-hover-color: #000;
+$header-top-logo-hover-opacity: 1;
+$header-top-logo-font-size-mobile: initial;
+$header-top-logo-height-mobile: auto;
+
+$header-bottom-logo-width: 205px;
+$header-bottom-logo-height: 31px;
+$header-bottom-logo-img: url(/assets/images/projects/frieze/header-logo.png);
+$header-bottom-logo-color: #000;
+$header-bottom-logo-filter: invert(1);
+$header-bottom-logo-hover-color: #000;
+$header-bottom-logo-hover-opacity: 0.5;
+$header-bottom-logo-font-size-mobile: 14px;
+$header-bottom-logo-height-mobile: 22px;
+
+$header-top-background-color: #fff;
+$header-top-height: 66px;
+$header-top-height-mobile: 72px;
+$header-top-padding: 16px 35px;
+$header-top-links-display: flex;
+$header-top-links-margin-left: 0px;
+
+$header-bottom-display: flex;
+$header-bottom-height: 55px;
+$header-bottom-background-color: #000;
+// $header-bottom-background-image: url(/assets/images/projects/nyfw/bg.png);
+$header-bottom-background-image-background-color: initial;
+$header-bottom-phone-color: #fff;
+$header-bottom-contacts-display: block;
+
+$header-mobile-close-icon: url(/assets/images/common/mobile-menu/close-icon.svg);
+$header-mobile-cart-link-display: inherit;
+$header-mobile-menu-icon-display: inline-block;
+
+//## POST EVENT
+$post-event-title-top: 0;
+$post-event-title-transform: none;
+$post-event-title-maxwidth: 660px;
+$post-event-heading-text-margin: 60px 40px 60px 0;
+$post-event-heading-text-margin-mobile: 60px 40px 60px 0;
+$post-event-heading-imgs-margin-left: 48px;
+$post-event-heading-imgs-margin-left-mobile: 10px;
+$post-event-heading-background-size: auto 330px;
+$post-event-article-background-color: #000;
+$post-event-article-text-color: #fff;
+$post-event-title-font: "Proxima Nova Light";
+$post-event-projects-img1: url(/assets/images/common/home_about1.png);
+$post-event-projects-img2: url(/assets/images/common/home_about2.png);
+$post-event-projects-img3: url(/assets/images/common/home_about3.png);
+$post-event-main-bg: url(/assets/images/projects/frieze/new-home-bg.png);
+$post-event-main-bg-color: #000;
+$post-event-heading-row-padding: 0;
+
+//## HOME
+$home-quote-icon: url(/assets/images/common/quote-icon.svg);
+$home-five-stars-icon: url(/assets/images/common/five-stars-rating.svg);
+$home-slides-arrow-icon: url(/assets/images/common/slides-arrow.svg);
+
+//## HERO BANER
+$hero-banner-bg-img: url(/assets/images/projects/frieze/new-home-bg.png);
+$home-hero-event-margin: 243px 0 0 40px;
+$home-hero-top-content-height-lg: auto;
+$home-hero-top-content-background-size-sm: cover;
+$home-hero-top-content-background-position-sm: -1000px 0;
+$home-hero-top-content-wrapper-display-lg: flex;
+$home-hero-top-content-wrapper-padding-lg: 0 22px;
+$home-hero-top-content-wrapper-padding-xs: 0;
+$home-hero-top-content-form: 100%;
+$home-hero-event-wrapper-position: initial;
+$home-hero-event-wrapper-max-width: none;
+$home-hero-event-wrapper-width-lg: auto;
+
+$home-hero-title-xs-size: 22px;
+$home-hero-title-xs-spacing: 1px;
+$home-hero-title-xs-line-height: 34px;
+$home-hero-title-xs-weight: 300;
+$home-hero-title-xs-color: inherit;
+$home-hero-title-xs-font: Klavika, sans-serif;
+$home-hero-title-xs-size-sm: 13px;
+$home-hero-title-xs-spacing-sm: 1px;
+$home-hero-title-xs-line-height-sm: 29px;
+$home-hero-title-xs-weight-sm: bold;
+$home-hero-title-xs-color-sm: inherit;
+
+$home-hero-title-sm-size: 17px;
+$home-hero-title-sm-spacing: 2.56px;
+$home-hero-title-sm-line-height: 24px;
+$home-hero-title-sm-weight: normal;
+$home-hero-title-sm-color: inherit;
+$home-hero-title-sm-font: inherit;
+$home-hero-title-sm-size-sm: 13px;
+$home-hero-title-sm-spacing-sm: 1.36px;
+$home-hero-title-sm-line-height-sm: 29px;
+$home-hero-title-sm-weight-sm: bold;
+$home-hero-title-sm-color-sm: #fff;
+
+$home-hero-title-md-size: 50px;
+$home-hero-title-md-spacing: 0;
+$home-hero-title-md-line-height: 1.2;
+$home-hero-title-md-weight: lighter;
+$home-hero-title-md-color: inherit;
+$home-hero-title-md-font: inherit;
+$home-hero-title-md-size-sm: 25px;
+$home-hero-title-md-spacing-sm: 1px;
+$home-hero-title-md-line-height-sm: 38px;
+$home-hero-title-md-weight-sm: bold;
+$home-hero-title-md-color-sm: inherit;
+
+$home-hero-title-lg-size: 82px;
+$home-hero-title-lg-spacing: 1.22px;
+$home-hero-title-lg-line-height: 85px;
+$home-hero-title-lg-weight: 700;
+$home-hero-title-lg-color: inherit;
+$home-hero-title-lg-font: inherit;
+$home-hero-title-lg-size-sm: 34px;
+$home-hero-title-lg-spacing-sm: 1.36px;
+$home-hero-title-lg-line-height-sm: 34px;
+$home-hero-title-lg-weight-sm: normal;
+$home-hero-title-lg-color-sm: inherit;
+
+//## PRODUCT
+$product-title-font: "Interstate Bold", sans-serif;
+$product-price-block-font: "Roboto", sans-serif;
+$product-price-label-font: "Proxima Nova Regular";
+$product-dropdown-icon: url(/assets/images/common/dropdown-icon.svg) 70% / 16% no-repeat transparent;
+$product-description-font: "Roboto", sans-serif;
+$product-navigation-display: none;
+
+//## FOOTER
+
+$footer-background-image: url(/assets/images/footer/footer-bg.png);
+$footer-phone-icon: url(/assets/images/footer/phone-icon.svg);
+$footer-email-icon: url(/assets/images/footer/mail-icon.svg);
+$footer-powered-by-img: url(/assets/images/footer/logo.svg);
+$layout-footer-contact-description-font: "Interstate Bold", sans-serif;
+$layout-footer-contact-line-height: 26px;
+$layout-footer-contact-font-weight: 600;
+$layout-footer-contact-margin-bottom: 22px;
+$layout-footer-contact-right: 15px;
+$layout-footer-wrapper-padding: 0 25px;
+
+//## OTHER
+$cart-dropdown-image: url(/assets/images/common/about_1.png);
+$signup-submit-button: #000;
+$heading-line-height-h1: 85px;
+$heading-text-font-size-h1: 82px;
+$heading-text-font-size-h1-lg: inherit;
+$heading-text-font-size-h1-md: 36px;
+$heading-text-font: Roboto, sans-serif;
+$heading-text-font-weight: 400;
+$heading-text-font-h3: Roboto, sans-serif;
+$heading-text-font-weight-h1: bold;
+$heading-text-line-height-h1: 85px;
+$heading-big-logo-margin: 31px 0 73px;
+$heading-big-logo-margin-mobile: 31px 0 73px;
+$heading-background-position-y: inherit;
+
+$main-margin-top: 121px;
+$main-margin-top-mobile: 118px;
+$signup-modal-close-img: url(/assets/images/common/modals/close_btn_white.svg);
+$contact-logo-email-img: url(/assets/images/common/home/email-logo.svg);
+$article-text-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$signup-b-font-weight: 500;
+$product-page-checkout-button-background-color: #000;
+$product-page-options-block-margin-top: 10px;
+
+// SELECT DATES STICKY FOOTER
+$select-dates-sticky-background-color: #fff;
+$select-dates-sticky-checkout-block-color: #000;
+$select-dates-sticky-tax-label-color: #838383;
+$select-dates-sticky-max-height: 84px;
+$select-dates-sticky-checkout-button-margin-top: 0px;
+$select-dates-sticky-price-block-margin-top: 0px;
+$select-dates-sticky-select-box-border: 1px solid #dddddd;
+$select-dates-sticky-checkout-block-margin-top: 0px;
+$select-dates-sticky-padding-top-lg: 15px;
+$select-dates-sticky-quantity-block-margin: 6px 28px 0 0;
+$select-dates-sticky-quantity-block-text-color: #000;
+$select-dates-sticky-price-block-text-align: left;
+$select-dates-sticky-options-title-margin: 0px 14px 0 0;
+
+// MASONRY
+$masonry-item-1-background-image: url();
+$masonry-item-2-background-image: url();
+$masonry-item-3-background-image: url();
+$masonry-item-4-background-image: url();
+
+//EMAIL INPUT
+$email-input-wrapper-display: block;
+$email-input-wrapper-padding: 0;

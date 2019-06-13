@@ -1,0 +1,62 @@
+<main>
+  <div class="heading">
+    <div class="video-wrapper" *ngIf="videoUrls">
+      <video class="video-bg" [muted]="true" [autoplay]="true" [controls]="false" [loop]="true" [preload]="false"
+        #videoDesktop>
+      </video>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-7">
+          <div class="heading__text"></div>
+        </div>
+        <div class="heading__form col-md-6 col-lg-5">
+          <app-signup></app-signup>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <app-masonry *ngIf="environmentData.annProject" ></app-masonry> -->
+  <div class="article">
+    <div class="container">
+      <div class="row flex-column-reverse flex-sm-row">
+        <div class="col-lg-6">
+          <div class="article__image">
+            <div class="row article__image-row">
+              <div class="col-4 article__image-card">
+                <div class="article__image-src">
+                  <a href="https://www.nyfwexperience.com/" target="_blank"></a>
+                </div>
+              </div>
+              <div class="col-4 article__image-card">
+                <div class="article__image-src">
+                  <a href="https://www.friezeexperience.com/" target="_blank"></a>
+                </div>
+              </div>
+              <div class="col-4 article__image-card">
+                <div class="article__image-src">
+                  <a href="http://miamiopenexperience.com/" target="_blank"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="article__text">
+            <h3>About Endeavor Experiences</h3>
+            <p>Endeavor Experiences offers unparalleled access to the world’s most celebrated cultural events. As part
+              of Endeavor
+              (formerly WME | IMG) - the global leader in fashion, entertainment and sports - we’re offering official
+              access to
+              iconic events such as <span class="article__text-bold-part">NYFW The Shows and Frieze Art Fair.</span></p>
+            <p>Our position at the epicenter of cultural innovation
+              allows us to offer rare, insider-only experiences and VIP white-glove service you cannot find elsewhere.
+              With our
+              dedicated hospitality team and expertly curated itineraries, we produce unforgettable moments that stay
+              with you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

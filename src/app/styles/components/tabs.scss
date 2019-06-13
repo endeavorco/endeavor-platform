@@ -1,0 +1,55 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/schema.scss";
+
+.tabs {
+  &-nav {
+    margin-bottom: 90px;
+    overflow: hidden;
+    border-bottom: 1px solid $mid-gray;
+    text-align: center;
+
+    &__item {
+      margin-right: 130px;
+
+      font-family: "Roboto";
+      font-weight: bold;
+
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        border-bottom: 3px solid #000;
+      }
+
+      &:last-of-type {
+        margin-right: 0px;
+      }
+
+      @include media-breakpoint-down(tablet) {
+        margin-right: 40px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &-content {
+    &-item {
+      display: none;
+      padding: 6px 12px;
+      border-top: none;
+
+      &:first-of-type {
+        display: block;
+      }
+    }
+  }
+}
+
+.tabs-nav .tabs-nav__item.active {
+  border-bottom: 3px solid #000;
+}

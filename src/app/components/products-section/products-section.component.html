@@ -1,0 +1,54 @@
+<section class="products-section wrapper">
+  <div class="container">
+    <h1 class="products-section__title">
+      {{title}} 
+      <span class="products-section__title--hollow">EXPERIENCES</span>
+    </h1>
+    <h5 class="products-section__description">{{description}}</h5>
+    <p class="products-section-title">{{collection?.productList[0].category}}</p>
+    <div class="products-section-promoted">
+      <div class="products-section-promoted-media" [ngStyle]="{'background-image': 'url(' + collection?.productList[0].promoImage + ')'}">
+        <div class="products-section__tag" *ngFor="let tag of collection?.productList[0].tagList">
+          <a class="products-section__tag-text" [class.products-section__tag-text--red]="tag == 'sold out'"
+            [class.products-section__tag-text--white]="tag == 'coming soon'" href="javascript:void(0);">
+            {{tag}}
+          </a>
+        </div>
+        <div class="products-section-promoted-footer">
+          <a class="products-section-promoted-footer__title" routerLink="/{{collection?.productList[0].handleUrl}}" (click)="sendClickEvent(collection?.productList[0].title)">{{collection?.productList[0].title}}</a>
+          <p class="products-section-promoted-footer__date">{{collection?.productList[0].formattedDate}} | {{collection?.productList[0].locationName}}</p>
+        </div>
+      </div>
+      <div class="products-section-promoted-text">
+        <div class="products-section-promoted-text__media" [ngStyle]="{'background-image': 'url(' + collection?.productList[0].logoImage + ')'}"></div>
+        <p class="products-section-promoted__text-title">Event Info</p>
+        <p class="products-section-promoted__text" [innerHTML]="collection?.productList[0].shortDescription"></p>
+        <a class="products-section-promoted__btn" routerLink="/{{collection?.productList[0].handleUrl}}" (click)="sendClickEvent(collection?.productList[0].title)">LEARN MORE</a>
+      </div>
+    </div>
+
+    <div class="products-section-products products-grid" >
+      <ng-container *ngFor="let product of collection?.productList; let first = first">
+        <div class="products-section-product products-grid__item" *ngIf="!first" >
+          <p class="products-section-title">{{product.category}}</p>
+          <div class="products-section-product-media" [ngStyle]="{'background-image': 'url(' + product?.promoImage + ')'}">
+            <div class="products-section__tag" *ngFor="let tag of product.tagList">
+              <a class="products-section__tag-text" 
+                [class.products-section__tag-text--red]="tag == 'sold out'" 
+                [class.products-section__tag-text--white]="tag == 'coming soon'" 
+                href="javascript:void(0);">
+                {{tag}}
+              </a>
+            </div>
+          </div>
+          <div class="products-section-product-header">
+            <a class="products-section-product-header__title" routerLink="/{{product.handleUrl}}" (click)="sendClickEvent(product.title)">{{product.title}}</a>
+            <p class="products-section-product-header__date">{{product.formattedDate}} | {{product.locationName}}</p>
+          </div>
+          <p class="products-section-product__text" [innerHTML]="product.shortDescription">{{product.shortDescription}}</p>
+        </div>
+      </ng-container>
+    </div>
+    <h3 class="products-section-title--more"><a routerLink="/{{collection?.handle}}" (click)="sendClickEvent('See more')">SEE MORE +</a></h3>
+  </div>
+</section>

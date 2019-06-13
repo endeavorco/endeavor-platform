@@ -1,0 +1,32 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/schema.scss";
+
+.hero-banner {
+  position: relative;
+  min-height: 810px;
+  background-color: #000;
+  overflow: auto;
+  
+  @include media-breakpoint-down(tablet) {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../../assets/images/product-page-hero-bg.png);
+    // background-image: url(../../../assets/images/hero-bg-video-img-tablet.png);
+  }
+
+  @include media-breakpoint-down(md) {
+    min-height: 667px;
+  }
+
+  // @include media-breakpoint-down(xs) {
+  //   min-height: unset;
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   background-image: url(../../../assets/images/hero-bg-video-img-mobile.png);
+  // }
+
+  .container {
+    padding: 0;
+    height: 100%;
+  }
+}

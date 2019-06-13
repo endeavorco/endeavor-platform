@@ -1,0 +1,45 @@
+@import '../styles/mixins.scss';
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.container{
+  padding: 0 128px;
+  @include media-breakpoint-down(sm) {
+    padding: 0 10px;
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: #F71B1B;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity 1s;
+  z-index: 1;
+}
+
+.hide {
+  opacity: 0;
+  transition: opacity 1s;
+}

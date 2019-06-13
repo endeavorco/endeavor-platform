@@ -1,0 +1,5 @@
+<div class="stars">
+    <div class="stars-item" *ngFor="let star of stars">
+        <span class="stars-item-img" [ngStyle]="{'width': getFillPercent(star,rating)}"></span>
+    </div>
+</div>

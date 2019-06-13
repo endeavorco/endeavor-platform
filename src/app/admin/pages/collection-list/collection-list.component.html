@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+  
+  <div class="container">
+
+    <h1 class="title">Collections List</h1>
+    <div class="collection-list">
+      <a class="collection-list-item" *ngFor="let collection of collectionDataArray, let i = index"
+        routerLink="/admin/edit-collection/{{collection.handle}}">
+        <p class="collection-list-item__index">{{i+1}}</p>
+        {{collection.title}}
+      </a>
+    </div>
+
+  </div>
+</div>

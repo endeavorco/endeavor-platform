@@ -1,0 +1,6 @@
+<div class="hurryup-popup" [@simpleFadeAnimation]="show" *ngIf="show">
+  <div class="hurryup-popup__inner">
+    <span class="hurryup-popup__close" (click)="close()"></span>
+    <p class="hurryup-popup__text"><span>{{peopleNumber}}</span> other people are shopping for {{environment.hurryUpPopupBrand}} Experiences now</p>
+  </div>
+</div>

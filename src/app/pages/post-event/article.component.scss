@@ -1,0 +1,119 @@
+@import '../../styles/mixins.scss';
+@import "../../styles/schema.scss";
+
+.article{
+  position: relative;
+  background: $post-event-article-background-color;
+  padding: 85px 0 115px;
+
+  @include media-breakpoint-down(sm){
+    background-size: auto 330px;
+    padding: 25px 0 45px;
+  }
+
+  h3{
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 3.4px;
+    margin-bottom: 35px;
+  
+    @include media-breakpoint-down(sm){
+      font-size: 18px;
+      letter-spacing: 2.4px;
+      margin-bottom: 20px;
+    }
+  }
+
+  p{
+    font-size: 14px;
+    font-weight: lighter;
+    font-family: Roboto;
+    margin-bottom: 35px;
+    letter-spacing: 0.6px;
+    line-height: 28px;
+
+    &:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+
+  &__image{
+    height: 100%;
+    padding: 0 25px;
+  
+    @include media-breakpoint-down(lg){
+      padding: 0;
+    }
+    @include media-breakpoint-down(sm){
+      padding: 0 10px;
+    }
+
+    &-row{
+      height: 100%;
+    }
+  
+    &-card{
+      padding: 0 5px;
+      height: 100%;
+      &:nth-child(1) > div{
+        background-image: $post-event-projects-img1;
+      }
+      &:nth-child(2) > div{
+        background-image: $post-event-projects-img2;
+      }
+      &:nth-child(3) > div{
+        background-image: $post-event-projects-img3;
+      }
+    }
+  
+    &-src{
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      max-width: 100%;
+      
+      @include media-breakpoint-down(lg){
+        min-height: 450px;
+      }
+      @include media-breakpoint-down(sm){
+        min-height: 340px;
+      }
+      @include media-breakpoint-down(sm){
+        min-height: 220px;
+      }
+
+      a{
+        position: absolute;
+        width: calc(100% - 10px);
+        height: 100%;
+      }
+    }
+  }
+
+  &__text{
+    padding: 0 25px;
+    color: $post-event-article-text-color;
+
+    &-bold-part {
+      font-weight: bolder;
+    }
+
+    h3 {
+      font-family: $article-text-font;
+    }
+
+    @include media-breakpoint-down(lg){
+      padding: 0;
+    }
+    @include media-breakpoint-down(md){
+      margin-top: 50px;
+    }
+    @include media-breakpoint-down(sm){
+      padding: 0 0 50px;
+    }
+    @include media-breakpoint-down(xs){
+      margin-top: 0;
+    }
+  }
+}

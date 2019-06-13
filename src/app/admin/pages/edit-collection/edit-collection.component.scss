@@ -1,0 +1,247 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/schema.scss";
+@import "../../../styles/components/tabs.scss";
+
+.edit-collection {
+  &-content {
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    @include md-title;
+    margin-bottom: 60px;
+    margin-top: 40px;
+  }
+
+  &-form {
+    width: 100%;
+    margin-right: 60px;
+
+    &-content {
+      display: flex;
+      flex: 1;
+    }
+
+    &-fields {
+      margin-bottom: 40px;
+      width: 400px;
+
+      &-group {
+        margin-bottom: 8px;
+
+        input,
+        textarea {
+          width: 60%;
+        }
+      }
+    }
+
+    &__title {
+      @include sm-title;
+      margin-bottom: 18px;
+    }
+
+    &__btn {
+      @include text;
+      width: 100px;
+      padding: 8px 16px;
+
+      color: green;
+      background-color: transparent;
+      border: 1px solid green;
+    }
+
+    .form-state {
+      margin-bottom: 40px;
+      &-select {
+        width: 200px;
+        appearance: none;
+        margin-left: 16px;
+        padding: 8px;
+        border: 1px solid black;
+        border-radius: unset;
+        background-color: transparent;
+        outline: none;
+
+        background-image: linear-gradient(45deg, transparent 50%, black 50%),
+          linear-gradient(135deg, black 50%, transparent 50%);
+        background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+        background-repeat: no-repeat;
+
+        &__option {
+        }
+      }
+    }
+
+    .list {
+      margin-bottom: 40px;
+
+      &-item {
+        @include text;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        border: 1px solid #000;
+        margin-bottom: 8px;
+
+        &-content {
+          width: 100%;
+          border-right: 1px solid #000;
+          padding: 8px 16px;
+
+          &-group {
+            margin-bottom: 8px;
+          }
+
+          &__label {
+          }
+          &__input {
+            width: 75%;
+          }
+        }
+
+        &__btn {
+          @include text;
+          color: red;
+          padding: 16px;
+          background-color: transparent;
+          border: none;
+        }
+      }
+
+      &__btn {
+        @include text;
+        width: 100px;
+        padding: 8px 16px;
+
+        background-color: transparent;
+        border: 1px solid #000;
+      }
+    }
+  }
+
+  &__products {
+    &-title {
+      @include sm-title;
+    }
+
+    &-item {
+      @include text;
+      display: block;
+      padding: 8px 16px;
+
+      &__index {
+        display: inline;
+        margin-right: 16px;
+      }
+
+      &:nth-child(even) {
+        background-color: #f5f5f5;
+      }
+
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+
+    &-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+
+      margin-right: 40px;
+      margin-bottom: 0;
+      border: none;
+
+      &__item {
+        width: 100%;
+        margin-right: 0;
+        padding: 16px 24px;
+        text-align-last: left;
+
+        &:hover {
+          border-bottom: none;
+          background-color: lightgray;
+        }
+      }
+    }
+
+    &-content {
+      flex: 1;
+      margin-right: 40px;
+    }
+  }
+
+  .tabs-nav .tabs-nav__item.active {
+    border-bottom: none;
+    background-color: lightgray;
+  }
+}
+
+.collection-thumb{
+  &-container{
+    display: block;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+  }
+  &-img{
+    display: block;
+  }
+}
+
+.confirmation-modal{
+  &__content{
+    display: inline-block;
+    max-width: 620px;
+    width: 100%;
+    padding: 40px 24px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 2px #000;
+    background: #fff;
+    z-index: 100;
+    text-align: center;
+    @include media-breakpoint-down(sm) {
+      max-width: calc(100% - 24px);
+    }
+  }
+  &__message {
+    @include sm-title;
+    margin-bottom: 30px;
+    @include media-breakpoint-down(sm) {
+      @include text;
+      margin-bottom: 20px;
+    }
+  }
+  &__background{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #0000008c;
+  }
+  &__btn{
+    @include text;
+    width: 100px;
+    padding: 8px 16px;
+    color: green;
+    background-color: transparent;
+    border: 1px solid green;
+  }
+}

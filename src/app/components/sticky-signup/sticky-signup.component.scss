@@ -1,0 +1,110 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/schema.scss";
+@import "../../styles/animations.scss";
+
+.signup {
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  background-color: $main-blue;
+  left: 0;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+  opacity: 1;
+
+  &_shrinked{
+    opacity: 0;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding-right: 50px;
+    padding-left: 80px;
+
+    @include media-breakpoint-down(sm) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    &_open {
+      justify-content: space-between;
+    }
+
+    &-title {
+      @include text-13;
+
+      display: inline-block;
+      padding: 10px 16px;
+      margin-right: 8px;
+      vertical-align: middle;
+
+      text-transform: uppercase;
+      color: #fff;
+      
+      @include media-breakpoint-down(sm) {
+        @include text-12;
+
+        display: none;
+      }
+
+      &__mobile{
+        display: none;
+
+        @include media-breakpoint-down(sm) {
+          display: block;
+        }
+      }
+
+      &__part {
+        font-weight: bold;
+
+        &_open {
+          margin-right: 20px;
+          white-space: nowrap;
+        }
+      }
+
+      &_open {
+        padding: 11px 0;
+
+        .signup-title__part {
+          display: inline-block;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    &-text {
+      @include text;
+
+      max-width: 880px;
+      display: inline-block;
+      color: #fff;
+      margin-right: 124px;
+      margin-bottom: 16px;
+
+      &__part {
+        display: block;
+      }
+    }
+
+    &__btn {
+      display: inline-block;
+      height: 9px;
+      width: 22px;
+
+      background-image: url(/assets/icons/signup-arrow-up.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      cursor: pointer;
+
+      &_open {
+        background-image: url(/assets/icons/signup-arrow-down.png);
+      }
+    }
+  }
+}

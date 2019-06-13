@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "es2015",
+    "types": []
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts",
+
+    "**/confirm-modal.component.ts",
+    "**/date-picker.component.ts",
+    "**/loader.component.ts",
+    "**/related-products-dp.component.ts",
+    "**/swiper.component.ts",
+    "**/cart.component.ts",
+    "**/contact.component.ts"
+  ]
+}

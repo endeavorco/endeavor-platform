@@ -1,0 +1,10 @@
+<section class="hero-banner wrapper">
+  <div class="container">
+    <app-main-header [heading]="heading"></app-main-header>
+    <app-slider [images]="config.slides" [config]="sliderConfig"></app-slider>
+    <div class="hero-banner__links">
+      <a class="hero-banner__links-item" [href]="link.url" (click)="sendBannerClickEvent(link.text)" *ngFor="let link of config?.heroLinks" target="_blank">{{link.text}}</a>
+    </div>
+  </div>
+  <app-menu [menuLinks]="config?.menuLinks"></app-menu>
+</section>

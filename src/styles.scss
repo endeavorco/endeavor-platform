@@ -1,0 +1,14 @@
+// base
+@import "./app/styles/reset.scss";
+@import "./app/styles/schema.scss";
+@import "./app/styles/base.scss";
+@import "./app/styles/fonts.scss";
+@import './app/styles/mixins.scss';
+@import './app/styles/helpers.scss';
+@import './app/styles/animations.scss';
+
+// libs
+@import "../node_modules/tiny-slider/dist/tiny-slider.css";
+
+// components
+@import "./app/styles/components/buttons.scss";
